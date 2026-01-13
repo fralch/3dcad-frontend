@@ -1,1 +1,87 @@
-<p>types works!</p>
+<div class="page-container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h3>CATEGORÍAS</h3>
+      <span class="toggle-icon">▼</span>
+    </div>
+    
+    <ul class="category-list">
+      <li *ngFor="let cat1 of categories" class="category-item">
+        <div class="category-header" (click)="toggleCategory(cat1)">
+          <span>{{ cat1.name }}</span>
+          <span *ngIf="cat1.count" class="count">{{ cat1.count }}</span>
+        </div>
+        
+        <ul *ngIf="cat1.subcategories && cat1.expanded" class="subcategory-list">
+          <li *ngFor="let cat2 of cat1.subcategories" class="subcategory-item">
+            <div class="category-header" (click)="toggleCategory(cat2)">
+              <span>{{ cat2.name }}</span>
+              <span *ngIf="cat2.count" class="count">{{ cat2.count }}</span>
+            </div>
+
+            <ul *ngIf="cat2.subcategories && cat2.expanded" class="subcategory-list">
+              <li *ngFor="let cat3 of cat2.subcategories" class="subcategory-item leaf">
+                <span>{{ cat3.name }}</span>
+                <span *ngIf="cat3.count" class="count">{{ cat3.count }}</span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="content-header">
+      <div class="breadcrumbs">
+        <span>Biblioteca</span> &gt; <span>Aberturas</span>
+      </div>
+      <div class="controls-bar">
+        <span class="results-count">4199 RESULTADOS</span>
+        <div class="sort-dropdown">
+          ORDENAR POR: <strong>Más recientes</strong> ▼
+        </div>
+      </div>
+    </div>
+
+    <div class="category-description">
+      <h1>Aberturas</h1>
+      <p>Puertas, ventanas, portones y guardarropas. Todas las aberturas que imaginas están aquí.</p>
+      <p class="small-text">Bloques de autocad gratis y premium de aberturas para descargar en formato 2d, 3d, dwg, revit, sketchup y más. Podrás encontrar miles de bloques autocad de ventanas, balcones, puertas y portones, divisorios y mamparas, guardarropas todo esto en 2d y 3d. Archivos cad listos para integrar en tu trabajo o también para consultar detalles constructivos.</p>
+    </div>
+
+    <div class="items-grid">
+      <div class="card" *ngFor="let item of items">
+        <div class="card-image">
+          <img [src]="item.image" [alt]="item.title">
+          <span class="badge-premium">★</span>
+        </div>
+        <div class="card-footer">
+          <div class="card-title">{{ item.title }}</div>
+          <div class="card-meta">
+            <span class="file-type">{{ item.type }}</span>
+            <span class="file-size">👁 {{ item.size }}</span>
+            <!-- <span class="file-views">👁 {{ item.views }}</span> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagination">
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn">4</button>
+      <button class="page-btn">5</button>
+      <button class="page-btn">6</button>
+      <button class="page-btn">7</button>
+      <button class="page-btn">8</button>
+      <button class="page-btn">9</button>
+      <button class="page-btn">10</button>
+      <button class="page-btn">11</button>
+      <button class="page-btn next">></button>
+    </div>
+  </main>
+</div>
