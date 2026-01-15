@@ -41,6 +41,7 @@ export class Types {
         },
         {
           name: 'ARQUITECTURA',
+          expanded: true,
           subcategories: [
             { name: 'VIVIENDA', count: 124 },
             { name: 'MOBILIARIO', count: 51 },
@@ -51,15 +52,18 @@ export class Types {
     },
     {
       name: 'PLANOS',
+      expanded: true,
       subcategories: [
         {
           name: 'MECÁNICA',
+          expanded: true,
           subcategories: [
             { name: 'GENERAL', count: 10 }
           ]
         },
         {
           name: 'ARQUITECTURA',
+          expanded: true,
           subcategories: [
             { name: 'GENERAL', count: 35 }
           ]
