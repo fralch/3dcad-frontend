@@ -1,46 +1,6 @@
 <div class="page-container">
   <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-header">
-      <h3>CATEGORÍAS</h3>
-    </div>
-    
-    <ul class="category-list">
-      <!-- Level 1 -->
-      <li *ngFor="let cat1 of categories" class="category-item level-1">
-        <div class="category-header" (click)="toggleCategory(cat1)" [class.active]="cat1.expanded">
-          <div class="header-content">
-            <span class="category-name">{{ cat1.name }}</span>
-            <span *ngIf="cat1.count" class="count">({{ cat1.count }})</span>
-          </div>
-          <span class="chevron" [class.expanded]="cat1.expanded" *ngIf="cat1.subcategories?.length">›</span>
-        </div>
-        
-        <ul *ngIf="cat1.subcategories && cat1.expanded" class="subcategory-list">
-          <!-- Level 2 -->
-          <li *ngFor="let cat2 of cat1.subcategories" class="subcategory-item level-2">
-            <div class="category-header" (click)="toggleCategory(cat2)" [class.clickable]="cat2.subcategories?.length">
-              <div class="header-content">
-                <span class="category-name">{{ cat2.name }}</span>
-                <span *ngIf="cat2.count" class="count">{{ cat2.count }}</span>
-              </div>
-              <span class="chevron" [class.expanded]="cat2.expanded" *ngIf="cat2.subcategories?.length">›</span>
-            </div>
-
-            <ul *ngIf="cat2.subcategories && cat2.expanded" class="subcategory-list">
-              <!-- Level 3 -->
-              <li *ngFor="let cat3 of cat2.subcategories" class="subcategory-item level-3">
-                <div class="category-leaf">
-                  <span class="category-name">{{ cat3.name }}</span>
-                  <span *ngIf="cat3.count" class="count">{{ cat3.count }}</span>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </aside>
+  <app-category-sidebar [categories]="categories"></app-category-sidebar>
 
   <!-- Main Content -->
   <main class="main-content">

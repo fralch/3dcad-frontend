@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-interface Category {
-  name: string;
-  count?: number;
-  subcategories?: Category[];
-  expanded?: boolean;
-}
+import { CategorySidebarComponent, Category } from '../../shared/components/category-sidebar/category-sidebar';
 
 interface Item {
   title: string;
@@ -19,7 +13,7 @@ interface Item {
 @Component({
   selector: 'app-types',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CategorySidebarComponent],
   templateUrl: './types.html',
   styleUrl: './types.css',
 })
@@ -86,8 +80,4 @@ export class Types {
     { title: 'Bloques dinámicos de aberturas', image: 'https://via.placeholder.com/300x200', type: 'DWG', size: '117.7k', views: '50k' },
     { title: 'Familia de puerta vaivén', image: 'https://via.placeholder.com/300x200', type: 'RFA', size: '3.9k', views: '7k' },
   ];
-
-  toggleCategory(category: Category) {
-    category.expanded = !category.expanded;
-  }
 }
