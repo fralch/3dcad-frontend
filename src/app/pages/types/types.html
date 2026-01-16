@@ -23,20 +23,7 @@
     </div>
 
     <div class="items-grid">
-      <div class="card" *ngFor="let item of items">
-        <div class="card-image">
-          <img [src]="item.image" [alt]="item.title">
-          <span class="badge-premium">★</span>
-        </div>
-        <div class="card-footer">
-          <div class="card-title">{{ item.title }}</div>
-          <div class="card-meta">
-            <span class="file-type">{{ item.type }}</span>
-            <span class="file-size">👁 {{ item.size }}</span>
-            <!-- <span class="file-views">👁 {{ item.views }}</span> -->
-          </div>
-        </div>
-      </div>
+      <app-file-preview-card *ngFor="let item of items" [item]="item"></app-file-preview-card>
     </div>
 
     <div class="pagination">

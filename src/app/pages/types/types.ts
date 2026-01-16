@@ -1,19 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategorySidebarComponent, Category } from '../../shared/components/category-sidebar/category-sidebar';
-
-interface Item {
-  title: string;
-  image: string;
-  type: string;
-  size: string;
-  views: string;
-}
+import { FilePreviewCardComponent } from '../../shared/components/file-preview-card/file-preview-card';
+import { Item } from '../../shared/models/item.model';
 
 @Component({
   selector: 'app-types',
   standalone: true,
-  imports: [CommonModule, CategorySidebarComponent],
+  imports: [CommonModule, CategorySidebarComponent, FilePreviewCardComponent],
   templateUrl: './types.html',
   styleUrl: './types.css',
 })
