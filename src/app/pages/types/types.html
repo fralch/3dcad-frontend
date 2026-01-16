@@ -23,7 +23,7 @@
     </div>
 
     <div class="items-grid">
-      <app-file-preview-card *ngFor="let item of items" [item]="item"></app-file-preview-card>
+      <app-file-preview-card *ngFor="let item of items" [item]="item" (cardClick)="openModal(item)"></app-file-preview-card>
     </div>
 
     <div class="pagination">
@@ -41,4 +41,6 @@
       <button class="page-btn next">></button>
     </div>
   </main>
+
+  <app-file-details-modal [visible]="showModal" [item]="selectedItem" (close)="closeModal()"></app-file-details-modal>
 </div>

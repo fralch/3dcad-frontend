@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Item } from '../../models/item.model';
 
@@ -11,4 +11,9 @@ import { Item } from '../../models/item.model';
 })
 export class FilePreviewCardComponent {
   @Input() item!: Item;
+  @Output() cardClick = new EventEmitter<void>();
+
+  onClick() {
+    this.cardClick.emit();
+  }
 }

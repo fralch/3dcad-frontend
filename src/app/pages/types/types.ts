@@ -2,16 +2,30 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategorySidebarComponent, Category } from '../../shared/components/category-sidebar/category-sidebar';
 import { FilePreviewCardComponent } from '../../shared/components/file-preview-card/file-preview-card';
+import { FileDetailsModalComponent } from '../../shared/components/file-details-modal/file-details-modal';
 import { Item } from '../../shared/models/item.model';
 
 @Component({
   selector: 'app-types',
   standalone: true,
-  imports: [CommonModule, CategorySidebarComponent, FilePreviewCardComponent],
+  imports: [CommonModule, CategorySidebarComponent, FilePreviewCardComponent, FileDetailsModalComponent],
   templateUrl: './types.html',
   styleUrl: './types.css',
 })
 export class Types {
+  selectedItem: Item | null = null;
+  showModal: boolean = false;
+
+  openModal(item: Item) {
+    this.selectedItem = item;
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
+    this.selectedItem = null;
+  }
+
   categories: Category[] = [
     {
       name: '3D',
